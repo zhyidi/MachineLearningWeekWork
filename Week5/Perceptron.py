@@ -3,7 +3,10 @@ import numpy as np
 
 class Perceptron(object):
     def __init__(self, eta=0.01, iter=10):
-        """初始化，eta为变化步长，默认是0.01；iter是学习的轮数，默认是10"""
+        """
+        初始化，eta为变化步长，默认是0.01；iter是学习的轮数，默认是10。
+        当然也可不设置迭代次数，改为分类全部正确的那一轮停止迭代。
+        """
         self.eta = eta
         self.iter = iter
 
