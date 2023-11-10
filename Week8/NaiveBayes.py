@@ -76,9 +76,9 @@ def predict_nb(x, p1, p1_list, p0_list):
             x_p0 += p0_xi.conditional_pro[x[i]]
 
     if x_p1 > x_p0:
-        return "是"
+        return "好瓜"
     else:
-        return "否"
+        return "坏瓜"
 
 
 if __name__ == "__main__":
