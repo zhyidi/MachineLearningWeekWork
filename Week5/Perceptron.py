@@ -54,4 +54,3 @@ if __name__ == "__main__":
     print("w:{0}, b:{1}".format(ppn_or.w[1:], ppn_or.w[0]))
     for item in or_data:
         print("{0}的预测结果是：{1}".format(item, ppn_or.predict(item)))
-
