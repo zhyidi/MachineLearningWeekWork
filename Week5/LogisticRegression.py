@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 from sklearn import linear_model
 
 # 1.数据处理，特征工程
-data_path = "E:\code\python\ML_WeekWork\watermelon3_0_Ch.csv"
+data_path = "E:\code\ML_WeekWork\watermelon3_0_Ch.csv"
 data = pd.read_csv(data_path).values
 # 取所有行的第10列(标签列)进行判断
 is_good = data[:, 9] == "是"
