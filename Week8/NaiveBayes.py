@@ -82,7 +82,7 @@ def predict_nb(x, p1, p1_list, p0_list):
 
 
 if __name__ == "__main__":
-    data_path = r"E:\code\ML_WeekWork\watermelon3_0_Ch.csv"
+    data_path = r"watermelon3_0_Ch.csv"
     data = pd.read_csv(data_path, index_col=0)
 
     X = data.iloc[:, :-1]
