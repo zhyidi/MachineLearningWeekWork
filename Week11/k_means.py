@@ -17,6 +17,8 @@ def plot_converge(clusteres, means):
         # 画出每个簇的点
         plt.scatter(cluster[:, 0], cluster[:, 1], c="lightcoral")
         # 画出每个簇的凸包
+        if len(cluster) == 1:
+            continue
         hull = ConvexHull(cluster).vertices.tolist()
         hull.append(hull[0])
         plt.plot(cluster[hull, 0], cluster[hull, 1], "c--")
@@ -62,6 +64,6 @@ def kmeans(file_path, k, initial_points):
 
 if __name__ == "__main__":
     file_path = "watermelon4_0_Ch.txt"  # 数据路径
-    k = 3  # 聚类簇数
-    initial_points = [1, 10, 29]  # 初始点
+    k = 4  # 聚类簇数
+    initial_points = [1, 10, 29, 20]  # 初始点
     kmeans(file_path, k, initial_points)
