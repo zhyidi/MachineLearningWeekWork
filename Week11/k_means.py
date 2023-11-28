@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from scipy.spatial import ConvexHull
 
 
-def plot_converge(clusteres, means):
+def plot_converge(clusteres, initial_means):
     plt.cla()  # 清除原有图像
 
     plt.title("k-meas converge process")
@@ -22,9 +22,9 @@ def plot_converge(clusteres, means):
         hull = ConvexHull(cluster).vertices.tolist()
         hull.append(hull[0])
         plt.plot(cluster[hull, 0], cluster[hull, 1], "c--")
-    # 标记中心点
-    # plt.scatter(means[:, 0], means[:, 1], label="initial center", c="k")
-    # plt.legend()
+    # 标记初始中心点
+    plt.scatter(initial_means[:, 0], initial_means[:, 1], label="initial center", c="k")
+    plt.legend()
     plt.pause(0.5)
 
 
@@ -39,6 +39,7 @@ def kmeans(file_path, k, initial_points):
     dataset = np.loadtxt(file_path, delimiter=",")
     # 均值向量
     means = [list(dataset[initial_point - 1]) for initial_point in initial_points]
+    initial_means = copy.deepcopy(means)
     means_pre = []
     # 打开交互模式
     plt.ion()
@@ -53,7 +54,7 @@ def kmeans(file_path, k, initial_points):
             # 归到距离最小的簇
             min_index = euclidean_distances.index(min(euclidean_distances))
             clusteres[min_index].append(data)
-        plot_converge(clusteres, means)
+        plot_converge(clusteres, np.array(initial_means))
         # 更新均值向量
         means = [list(np.mean(cluster, axis=0)) for cluster in clusteres]
         print("means:{}".format(means))
@@ -64,6 +65,10 @@ def kmeans(file_path, k, initial_points):
 
 if __name__ == "__main__":
     file_path = "watermelon4_0_Ch.txt"  # 数据路径
-    k = 4  # 聚类簇数
-    initial_points = [1, 10, 29, 20]  # 初始点
+    # k = 3  # 聚类簇数
+    # initial_points = [2, 10, 29]  # 初始点
+    # k = 4  # 聚类簇数
+    # initial_points = [2, 10, 29, 18]  # 初始点
+    k = 5  # 聚类簇数
+    initial_points = [2, 10, 29, 18, 7]  # 初始点
     kmeans(file_path, k, initial_points)
