@@ -65,10 +65,10 @@ def kmeans(file_path, k, initial_points):
 
 if __name__ == "__main__":
     file_path = "watermelon4_0_Ch.txt"  # 数据路径
-    # k = 3  # 聚类簇数
-    # initial_points = [2, 10, 29]  # 初始点
+    k = 3  # 聚类簇数
+    initial_points = [2, 10, 29]  # 初始点
     # k = 4  # 聚类簇数
     # initial_points = [2, 10, 29, 18]  # 初始点
-    k = 5  # 聚类簇数
-    initial_points = [2, 10, 29, 18, 7]  # 初始点
+    # k = 5  # 聚类簇数
+    # initial_points = [2, 10, 29, 18, 7]  # 初始点
     kmeans(file_path, k, initial_points)
